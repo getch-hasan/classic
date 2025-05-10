@@ -3,6 +3,7 @@
       "name": "Havic HV G-92 Gamepad",
       "category": "Gaming",
       "breadcrumbs": ["Account", "Gaming", "Havic HV G-92 Gamepad"],
+      "arrival":"new",
       "rating": {
         "stars": 4,
         "reviews": 150
@@ -41,7 +42,7 @@
         "/product/game3.png",
         "/product/game4.png"
       ],
-      "mainImage": "/product/mainGame.png"
+      "mainImage": "/product/laptop.png"
     },
     {
       "name": "HP Pavilion Laptop",
@@ -85,12 +86,13 @@
         "/product/laptop3.png",
         "/product/laptop4.png"
       ],
-      "mainImage": "/product/mainLaptop.png"
+      "mainImage": "/product/car.png"
     },
     {
       "name": "Gaming Headset X900",
       "category": "Gaming",
       "breadcrumbs": ["Account", "Gaming", "Gaming Headset X900"],
+       "arrival":"new",
       "rating": {
         "stars": 4.5,
         "reviews": 200
@@ -129,7 +131,7 @@
         "/product/headset3.png",
         "/product/headset4.png"
       ],
-      "mainImage": "/product/mainHeadset.png"
+      "mainImage": "/product/show.png"
     },
     {
       "name": "Samsung Galaxy S21",
@@ -173,11 +175,12 @@
         "/product/phone3.png",
         "/product/phone4.png"
       ],
-      "mainImage": "/product/mainPhone.png"
+      "mainImage": "/product/cloth.png"
     },
     {
       "name": "Apple MacBook Pro 13-inch",
       "category": "Electronics",
+       "arrival":"new",
       "breadcrumbs": ["Account", "Electronics", "Apple MacBook Pro 13-inch"],
       "rating": {
         "stars": 5,
@@ -217,11 +220,12 @@
         "/product/macbook3.png",
         "/product/macbook4.png"
       ],
-      "mainImage": "/product/mainMacbook.png"
+      "mainImage": "/product/camera.png"
     },
     {
       "name": "Nike Air Max 2021",
       "category": "Footwear",
+       "arrival":"new",
       "breadcrumbs": ["Account", "Footwear", "Nike Air Max 2021"],
       "rating": {
         "stars": 4.8,
@@ -261,7 +265,7 @@
         "/product/shoes3.png",
         "/product/shoes4.png"
       ],
-      "mainImage": "/product/mainShoes.png"
+      "mainImage": "/product/car.png"
     },
     {
       "name": "Sony WH-1000XM4",
@@ -305,11 +309,12 @@
         "/product/sony3.png",
         "/product/sony4.png"
       ],
-      "mainImage": "/product/mainSony.png"
+      "mainImage": "/product/camera.png"
     },
     {
       "name": "Canon EOS 5D Mark IV",
       "category": "Cameras",
+       "arrival":"new",
       "breadcrumbs": ["Account", "Cameras", "Canon EOS 5D Mark IV"],
       "rating": {
         "stars": 4.7,
@@ -344,7 +349,7 @@
         "/product/camera3.png",
         "/product/camera4.png"
       ],
-      "mainImage": "/product/mainCamera.png"
+      "mainImage": "/product/laptop.png"
     },
     {
       "name": "Fitbit Charge 4",
@@ -356,6 +361,7 @@
       },
       "availability": "In Stock",
       "price": 149.99,
+       "arrival":"new",
       "description": "Fitbit Charge 4 Fitness and Activity Tracker, GPS, Heart Rate Monitor, Sleep Tracking.",
       "colours": [
         {
@@ -388,7 +394,7 @@
         "/product/fitbit3.png",
         "/product/fitbit4.png"
       ],
-      "mainImage": "/product/mainFitbit.png"
+      "mainImage": "/product/show.png"
     }
   ]
 
