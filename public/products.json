@@ -4,6 +4,7 @@
       "category": "Gaming",
       "breadcrumbs": ["Account", "Gaming", "Havic HV G-92 Gamepad"],
       "arrival":"new",
+      "id": 1,
       "rating": {
         "stars": 4,
         "reviews": 150
@@ -36,17 +37,18 @@
         "type": "Return Delivery",
         "note": "Free 30 Days Delivery Returns"
       },
-      "images": [
-        "/product/game.png",
-        "/product/game2.png",
-        "/product/game3.png",
-        "/product/game4.png"
+    "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/laptop.png"
     },
     {
       "name": "HP Pavilion Laptop",
       "category": "Electronics",
+      "id": 2,
       "breadcrumbs": ["Account", "Electronics", "HP Pavilion Laptop"],
       "rating": {
         "stars": 5,
@@ -55,18 +57,7 @@
       "availability": "In Stock",
       "price": 799.99,
       "description": "HP Pavilion 15.6-inch Laptop, Intel Core i5, 8GB RAM, 512GB SSD, Windows 10",
-      "colours": [
-        {
-          "name": "Silver",
-          "hex": "#c0c0c0",
-          "selected": true
-        },
-        {
-          "name": "Black",
-          "hex": "#000000",
-          "selected": false
-        }
-      ],
+
       "sizes": ["15.6 inch"],
       "selectedSize": "15.6 inch",
       "quantity": 5,
@@ -80,17 +71,18 @@
         "type": "Return Delivery",
         "note": "Free 30 Days Delivery Returns"
       },
-      "images": [
+    "images": [
+        "/product/cloth.png",
         "/product/laptop.png",
-        "/product/laptop2.png",
-        "/product/laptop3.png",
-        "/product/laptop4.png"
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/car.png"
     },
     {
       "name": "Gaming Headset X900",
       "category": "Gaming",
+      "id": 3,
       "breadcrumbs": ["Account", "Gaming", "Gaming Headset X900"],
        "arrival":"new",
       "rating": {
@@ -126,16 +118,17 @@
         "note": "Free 30 Days Delivery Returns"
       },
       "images": [
-        "/product/headset.png",
-        "/product/headset2.png",
-        "/product/headset3.png",
-        "/product/headset4.png"
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/show.png"
     },
     {
       "name": "Samsung Galaxy S21",
       "category": "Mobile Phones",
+      "id": 4,
       "breadcrumbs": ["Account", "Mobile Phones", "Samsung Galaxy S21"],
       "rating": {
         "stars": 5,
@@ -169,17 +162,18 @@
         "type": "Return Delivery",
         "note": "Free 30 Days Delivery Returns"
       },
-      "images": [
-        "/product/phone.png",
-        "/product/phone2.png",
-        "/product/phone3.png",
-        "/product/phone4.png"
+     "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/cloth.png"
     },
     {
       "name": "Apple MacBook Pro 13-inch",
       "category": "Electronics",
+      "id": 5,
        "arrival":"new",
       "breadcrumbs": ["Account", "Electronics", "Apple MacBook Pro 13-inch"],
       "rating": {
@@ -189,18 +183,7 @@
       "availability": "In Stock",
       "price": 1299.99,
       "description": "Apple MacBook Pro 13-inch with Apple M1 chip, 8GB RAM, 256GB SSD, Retina Display.",
-      "colours": [
-        {
-          "name": "Silver",
-          "hex": "#c0c0c0",
-          "selected": true
-        },
-        {
-          "name": "Space Gray",
-          "hex": "#3e3e3e",
-          "selected": false
-        }
-      ],
+
       "sizes": ["13 inch"],
       "selectedSize": "13 inch",
       "quantity": 4,
@@ -214,11 +197,11 @@
         "type": "Return Delivery",
         "note": "Free 30 Days Delivery Returns"
       },
-      "images": [
-        "/product/macbook.png",
-        "/product/macbook2.png",
-        "/product/macbook3.png",
-        "/product/macbook4.png"
+  "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/camera.png"
     },
@@ -226,6 +209,7 @@
       "name": "Nike Air Max 2021",
       "category": "Footwear",
        "arrival":"new",
+      "id": 6,
       "breadcrumbs": ["Account", "Footwear", "Nike Air Max 2021"],
       "rating": {
         "stars": 4.8,
@@ -259,17 +243,19 @@
         "type": "Return Delivery",
         "note": "Free 30 Days Delivery Returns"
       },
-      "images": [
-        "/product/shoes.png",
-        "/product/shoes2.png",
-        "/product/shoes3.png",
-        "/product/shoes4.png"
+    "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/car.png"
     },
     {
       "name": "Sony WH-1000XM4",
       "category": "Audio",
+      "id": 7,
+      
       "breadcrumbs": ["Account", "Audio", "Sony WH-1000XM4"],
       "rating": {
         "stars": 5,
@@ -303,17 +289,18 @@
         "type": "Return Delivery",
         "note": "Free 30 Days Delivery Returns"
       },
-      "images": [
-        "/product/sony.png",
-        "/product/sony2.png",
-        "/product/sony3.png",
-        "/product/sony4.png"
+    "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/camera.png"
     },
     {
       "name": "Canon EOS 5D Mark IV",
       "category": "Cameras",
+      "id": 8,
        "arrival":"new",
       "breadcrumbs": ["Account", "Cameras", "Canon EOS 5D Mark IV"],
       "rating": {
@@ -344,16 +331,18 @@
         "note": "Free 30 Days Delivery Returns"
       },
       "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
         "/product/camera.png",
-        "/product/camera2.png",
-        "/product/camera3.png",
-        "/product/camera4.png"
+        "/product/car.png"
       ],
       "mainImage": "/product/laptop.png"
     },
     {
       "name": "Fitbit Charge 4",
       "category": "Fitness",
+      "id": 9,
+       
       "breadcrumbs": ["Account", "Fitness", "Fitbit Charge 4"],
       "rating": {
         "stars": 4.2,
@@ -389,10 +378,10 @@
         "note": "Free 30 Days Delivery Returns"
       },
       "images": [
-        "/product/fitbit.png",
-        "/product/fitbit2.png",
-        "/product/fitbit3.png",
-        "/product/fitbit4.png"
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
       ],
       "mainImage": "/product/show.png"
     }

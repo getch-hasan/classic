@@ -1,12 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import { FaStar, FaRegHeart, FaEye } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar, FaRegHeart } from "react-icons/fa";
 
 const ProductCard = ({product ,handleModal }) => {
     const [selectedColor, setSelectedColor] = useState("");
+    const rating = product?.rating?.stars || 0;
+const fullStars = Math.floor(rating);
+const hasHalfStar = rating % 1 >= 0.5;
+const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
     
   return (
-    <div className="w-64  rounded">
+    <Link href={`details/${product?.id}`} className="w-64  rounded">
       {/* Product Image */}
       <div className="relative group  ">
         <Image height={250} width={270}
@@ -18,7 +23,11 @@ const ProductCard = ({product ,handleModal }) => {
         <button className="w-6 h-6 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100">
           <FaRegHeart className="text-gray-600" />
         </button>
-        <button onClick={() => handleModal(product)} className="w-6 h-6 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100">
+        <button  onClick={(e) => {
+    e.stopPropagation(); 
+    e.preventDefault();  
+    handleModal(product);
+  }} className="w-6 h-6 rounded-full bg-white shadow flex items-center justify-center cursor-pointer hover:bg-gray-100">
   <Image src={'/product/eye.svg'} height={20} width={17} alt=""/>
 </button>
 
@@ -38,11 +47,16 @@ const ProductCard = ({product ,handleModal }) => {
       {/* Price and Rating */}
       <div className="flex items-center gap-2">
         <span className="text-[#DB4444] font-medium">${product?.price}</span>
-        <div className="flex items-center  text-yellow-400 text-sm">
-          {[...Array(5)].map((_, i) => (
-            <FaStar key={i} />
-          ))}
-        </div>
+<div className="flex items-center text-sm text-yellow-400">
+  {[...Array(fullStars)].map((_, i) => (
+    <FaStar key={`full-${i}`} />
+  ))}
+  {hasHalfStar && <FaStarHalfAlt key="half" />}
+  {[...Array(emptyStars)].map((_, i) => (
+    <FaRegStar key={`empty-${i}`} />
+  ))}
+</div>
+
         <span className="text-gray-500 text-sm font-semibold">({product?.rating?.stars})</span>
       </div>
   <div className="flex items-center gap-2 mt-2">
@@ -67,7 +81,7 @@ color?.selected ? 'border-black' : 'border-transparent'
 
 
    </div>
-    </div>
+    </Link>
   );
 };
 

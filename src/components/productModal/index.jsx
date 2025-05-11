@@ -6,7 +6,7 @@ console.log(product)
   return (
    <div className="fixed inset-0 z-50 flex items-center justify-center">
   {/* Background overlay */}
-  <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+  <div className="absolute inset-0  bg-gray-500 opacity-80"></div>
 
   {/* Modal content */}
   <div className="relative bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 z-10">
@@ -33,14 +33,14 @@ console.log(product)
 
         <div className="space-y-1">
           <div className="bg-black inline-block px-2 text-white rounded-full py-1 font-semibold">
-            Regular Price: <span>{product.price?.regularPrice || "N/A"}৳</span>
+            Regular Price: <span>{product.price || "N/A"}৳</span>
           </div>
           <div className="flex gap-2">
             <div className="bg-red-600 font-semibold text-white inline-block px-2 rounded-full py-1">
-              Special Price: {product.price?.price || "N/A"}৳
+              Special Price: {product.price || "N/A"}৳
             </div>
             <div className="bg-teal-600 font-semibold text-white inline-block px-2 rounded-full py-1">
-              E-com Price: {product.price?.ecomPrice || "N/A"}৳
+              E-com Price: {product.price || "N/A"}৳
             </div>
           </div>
         </div>
@@ -54,7 +54,13 @@ console.log(product)
         </div>
 
         <div className="text-sm text-gray-700 space-y-1">
-          <p>{product?.description}</p>
+          <h1 className="font-semibold text-lg">Key Feature</h1>
+             <div
+          className="text-gray-800 text-start"
+          dangerouslySetInnerHTML={{
+            __html: ` <p>${product?.description}</p>`,
+          }}
+        />
         </div>
 
         <div className="flex items-center gap-4 pt-3">

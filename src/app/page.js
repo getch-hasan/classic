@@ -3,27 +3,12 @@ import Banner from "@/components/hero/banner";
 import CategoryMenu from "@/components/hero/category";
 import RamModal from "@/components/productModal";
 import ProductCard from "@/components/singleCard";
+import { useProducts } from "@/context/ProductContext";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
-const [products, setProducts] = useState([]);
-console.log(products);
-  const fetchProducts = useCallback(async () => {
-    try {
-      const res = await fetch("/products.json");
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await res.json();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error fetching products:", error.message);
-    }
-  }, []); // No dependencies — only created once
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  const { products } = useProducts();
 
  const [modalOpen, setModalOpen] = useState(false);
  const [selectedProduct, setSelectedProduct] = useState(null);
