@@ -129,7 +129,7 @@ const ProductDetails = () => {
               {product?.sizes?.map((size) => (
                 <button
                   key={size}
-                  className={`border border-gray-400 px-3 py-1 font-medium text-sm rounded ${
+                  className={`border cursor-pointer border-gray-400 px-3 py-1 font-medium text-sm rounded ${
                     selectedSize === size ? "bg-[#DB4444] text-white" : ""
                   }`}
                   onClick={() => setSelectedSize(size)}
@@ -157,10 +157,10 @@ const ProductDetails = () => {
                 +
               </button>
             </div>
-            <button className="bg-[#DB4444] text-white px-6 py-2 rounded hover:bg-red-700">
+            <button className="bg-[#DB4444] cursor-pointer text-white px-6 py-2 rounded hover:bg-red-700">
               Buy Now
             </button>
-            <button className="text-xl border border-gray-400 p-2 rounded hover:bg-gray-100">
+            <button className="text-xl border cursor-pointer border-gray-400 p-2 rounded hover:bg-gray-100">
               <FaRegHeart/>
             </button>
           </div>
