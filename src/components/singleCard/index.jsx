@@ -11,13 +11,13 @@ const hasHalfStar = rating % 1 >= 0.5;
 const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
     
   return (
-    <Link href={`details/${product?.id}`} className="w-64  rounded">
+    <Link href={`details/${product?.id}`} className="md:w-64 w-36  rounded">
       {/* Product Image */}
       <div className="relative group  ">
         <Image height={250} width={270}
           src={product?.mainImage}
           alt="ASUS FHD Gaming Laptop"
-          className="w-full h-[250px] bg-gray-100 p-8 object-contain rounded-lg "
+          className="md:w-full   h-[250px] bg-gray-100 p-8 object-contain rounded-lg "
         />
           <div className="absolute top-3 right-3 flex flex-col gap-2">
         <button className="w-6 h-6 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100">

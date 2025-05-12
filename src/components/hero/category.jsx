@@ -1,8 +1,7 @@
 "use client";
 
 import { FaAngleRight } from "react-icons/fa";
-
-const categories = [
+export const categories = [
   {
     name: "Woman’s Fashion",
     subcategories: [

@@ -51,7 +51,7 @@ const Banner = () => {
     >
       {banners?.map((item) => (
         <SwiperSlide key={item?.banner_id}>
-          <div className="relative h-80 bg-[#F5F5F5]">
+          <div className="relative h-32 md:h-80 bg-primary">
             {/* Static Content Container */}
             <div className="absolute inset-0 flex items-center md:justify-start justify-center lg:left-44 md:left-24 z-10 ">
               <div className="text-start ">
@@ -61,7 +61,7 @@ const Banner = () => {
                 <p className="text-xl font-thin mb-4 text-primary">
                   {item?.subtitle}
                 </p>
-                <button className="bg-primary font-medium absolute bottom-3 flex items-center border-b-2 text-white px-4 py-2 gap-2 hover:bg-[#000000] transition duration-300">
+                <button className=" font-medium absolute bottom-3 flex items-center border-b-2 text-white px-4 py-2 gap-2 hover:bg-[#000000] transition duration-300">
                   Shop Now  <span><FaArrowRight/></span>
                 </button>
           

@@ -47,8 +47,8 @@ const ProductDetails = () => {
 
       <div className="flex flex-col md:flex-row gap-6">
         {/* Image Gallery */}
-        <div className=" flex gap-4">
-          <div className="flex flex-col gap-2">
+        <div className=" flex flex-col-reverse md:flex-row gap-4">
+          <div className="flex flex-row md:flex-col gap-2">
             {product?.images?.map((img, idx) => (
               <Image
                 height={100} 
@@ -56,7 +56,7 @@ const ProductDetails = () => {
                 key={idx}
                 src={img}
                 alt={`thumb-${idx}`}
-                className="bg-gray-100 p-5 h-full rounded-sm cursor-pointer"
+                className="bg-gray-100 w-20 md:w-[130px] p-5 h-full rounded-sm cursor-pointer"
                 onClick={() => setSelectedImage(img)}
               />
             ))}

@@ -384,6 +384,147 @@
         "/product/car.png"
       ],
       "mainImage": "/product/show.png"
+    },
+     {
+      "name": "Fitbit Charge 4",
+      "category": "Fitness",
+      "id": 10,
+       
+      "breadcrumbs": ["Account", "Fitness", "Fitbit Charge 4"],
+      "rating": {
+        "stars": 4.2,
+        "reviews": 110
+      },
+      "availability": "In Stock",
+      "price": 149.99,
+       "arrival":"new",
+      "description": "Fitbit Charge 4 Fitness and Activity Tracker, GPS, Heart Rate Monitor, Sleep Tracking.",
+      "colours": [
+        {
+          "name": "Black",
+          "hex": "#000000",
+          "selected": true
+        },
+        {
+          "name": "Purple",
+          "hex": "#9b49b2",
+          "selected": false
+        }
+      ],
+      "sizes": [  "XS","SM", "L", "XL", "XXL"],
+      "selectedSize": "One Size",
+      "quantity": 6,
+      "buyNowButton": true,
+      "wishlistButton": true,
+      "delivery": {
+        "type": "Free Delivery",
+        "note": "Enter your postal code for Delivery Availability"
+      },
+      "return": {
+        "type": "Return Delivery",
+        "note": "Free 30 Days Delivery Returns"
+      },
+      "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
+      ],
+      "mainImage": "/product/show.png"
+    },
+     {
+      "name": "Fitbit Charge 4",
+      "category": "Fitness",
+      "id": 11,
+       
+      "breadcrumbs": ["Account", "Fitness", "Fitbit Charge 4"],
+      "rating": {
+        "stars": 4.2,
+        "reviews": 110
+      },
+      "availability": "In Stock",
+      "price": 149.99,
+       "arrival":"new",
+      "description": "Fitbit Charge 4 Fitness and Activity Tracker, GPS, Heart Rate Monitor, Sleep Tracking.",
+      "colours": [
+        {
+          "name": "Black",
+          "hex": "#000000",
+          "selected": true
+        },
+        {
+          "name": "Purple",
+          "hex": "#9b49b2",
+          "selected": false
+        }
+      ],
+      "sizes": [  "XS","SM", "L", "XL", "XXL"],
+      "selectedSize": "One Size",
+      "quantity": 6,
+      "buyNowButton": true,
+      "wishlistButton": true,
+      "delivery": {
+        "type": "Free Delivery",
+        "note": "Enter your postal code for Delivery Availability"
+      },
+      "return": {
+        "type": "Return Delivery",
+        "note": "Free 30 Days Delivery Returns"
+      },
+      "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
+      ],
+      "mainImage": "/product/show.png"
+    },
+     {
+      "name": "Fitbit Charge 4",
+      "category": "Fitness",
+      "id": 12,
+       
+      "breadcrumbs": ["Account", "Fitness", "Fitbit Charge 4"],
+      "rating": {
+        "stars": 4.2,
+        "reviews": 110
+      },
+      "availability": "In Stock",
+      "price": 149.99,
+       "arrival":"new",
+      "description": "Fitbit Charge 4 Fitness and Activity Tracker, GPS, Heart Rate Monitor, Sleep Tracking.",
+      "colours": [
+        {
+          "name": "Black",
+          "hex": "#000000",
+          "selected": true
+        },
+        {
+          "name": "Purple",
+          "hex": "#9b49b2",
+          "selected": false
+        }
+      ],
+      "sizes": [  "XS","SM", "L", "XL", "XXL"],
+      "selectedSize": "One Size",
+      "quantity": 6,
+      "buyNowButton": true,
+      "wishlistButton": true,
+      "delivery": {
+        "type": "Free Delivery",
+        "note": "Enter your postal code for Delivery Availability"
+      },
+      "return": {
+        "type": "Return Delivery",
+        "note": "Free 30 Days Delivery Returns"
+      },
+      "images": [
+        "/product/cloth.png",
+        "/product/laptop.png",
+        "/product/camera.png",
+        "/product/car.png"
+      ],
+      "mainImage": "/product/show.png"
     }
   ]
 

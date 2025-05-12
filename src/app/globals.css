@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Your base theme settings */
+@theme {
+  --color-primary: #F5F5F5;
+}
+
+
+
 
 .container-custom {
   padding-right: 15px;
