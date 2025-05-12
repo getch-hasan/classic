@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar, FaRegHeart } from "react-icons/fa";
 import { useParams } from "next/navigation";
 import { useProducts } from "@/context/ProductContext";
 import Image from "next/image";
@@ -91,29 +91,31 @@ const ProductDetails = () => {
                 <FaRegStar key={`empty-${i}`} />
               ))}
             </div>
-            <span className="text-gray-500 text-sm">
+            <span className="text-gray-500 text-sm ">
               ({product.rating?.reviews} Reviews)
             </span>
-            <span className="text-green-600 font-semibold text-sm ml-2">
-              {product.availability}
+            {
+              product?.availability && <span className="text-[#00FF66] font-semibold text-sm ml-2">
+               In Stock
             </span>
+            }
           </div>
 
-          <div className="text-2xl font-bold">${product.price}</div>
+          <div className="text-2xl font-bold">${product?.price}</div>
 
-          <p className="text-gray-700">{product.description}</p>
+          <p className="text-gray-700 text-[14px] border-b border-gray-300 pb-5">{product?.description}</p>
 
           {/* Colors */}
-          <div>
+          <div className="flex items-center gap-4">
             <p className="text-sm font-medium">Colours:</p>
             <div className="flex gap-2 mt-1">
-              {product.colours.map((color, i) => (
+              {product?.colours?.map((color, i) => (
                 <div
                   key={i}
                   className={`w-6 h-6 rounded-full border cursor-pointer ${
-                    selectedColor?.hex === color.hex ? "ring-2 ring-black" : ""
+                    selectedColor?.hex === color?.hex ? "ring-2 ring-black" : ""
                   }`}
-                  style={{ backgroundColor: color.hex }}
+                  style={{ backgroundColor: color?.hex }}
                   onClick={() => setSelectedColor(color)}
                 ></div>
               ))}
@@ -121,14 +123,14 @@ const ProductDetails = () => {
           </div>
 
           {/* Sizes */}
-          <div>
-            <p className="text-sm font-medium">Size:</p>
+          <div className="flex items-center gap-4">
+            <p className="text-[20px] font-medium">Size:</p>
             <div className="flex gap-2 mt-1">
-              {product.sizes.map((size) => (
+              {product?.sizes?.map((size) => (
                 <button
                   key={size}
-                  className={`border px-3 py-1 rounded ${
-                    selectedSize === size ? "bg-black text-white" : ""
+                  className={`border border-gray-400 px-3 py-1 font-medium text-sm rounded ${
+                    selectedSize === size ? "bg-[#DB4444] text-white" : ""
                   }`}
                   onClick={() => setSelectedSize(size)}
                 >
@@ -140,42 +142,42 @@ const ProductDetails = () => {
 
           {/* Quantity + Buy Now */}
           <div className="flex items-center gap-4">
-            <div className="flex items-center border rounded px-2">
+            <div className="flex items-center border border-gray-400 rounded ">
               <button
-                className="px-2 text-2xl border-r font-bold"
+                className="px-2 text-2xl border-r border-gray-400 hover:bg-[#DB4444] cursor-pointer font-bold"
                 onClick={() => setQty((prev) => Math.max(1, prev - 1))}
               >
                 −
               </button>
-              <span className="px-4">{qty}</span>
+              <span className=" px-6">{qty}</span>
               <button
-                className="px-2 text-2xl font-bold border-l"
+                className="px-2 text-2xl font-bold border-l hover:bg-[#DB4444] cursor-pointer"
                 onClick={() => setQty((prev) => prev + 1)}
               >
                 +
               </button>
             </div>
-            <button className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700">
+            <button className="bg-[#DB4444] text-white px-6 py-2 rounded hover:bg-red-700">
               Buy Now
             </button>
-            <button className="text-xl border p-2 rounded hover:bg-gray-100">
-              ♡
+            <button className="text-xl border border-gray-400 p-2 rounded hover:bg-gray-100">
+              <FaRegHeart/>
             </button>
           </div>
 
           {/* Delivery Info */}
-          <div className="mt-6 space-y-3 border-t pt-4">
-            <div className="flex items-start gap-3">
-              <span>🚚</span>
-              <p>
+          <div className="mt-6 space-y-3  border inline-block px-5 rounded-sm border-gray-300  py-4">
+            <div className="flex items-center gap-3 ">
+            <Image src={'/product/delivery.svg'} height={20} width={30} alt=""/>
+              <p className="text-sm">
                 <strong>{product.delivery.type}</strong>
                 <br />
-                {product.delivery.note}
+               <span className="underline"> {product.delivery.note}</span>
               </p>
             </div>
-            <div className="flex items-start gap-3">
-              <span>🔁</span>
-              <p>
+            <div className="flex items-center gap-3">
+               <Image src={'/product/return.svg'} height={20} width={30} alt=""/>
+              <p className="text-sm">
                 <strong>{product.return.type}</strong>
                 <br />
                 {product.return.note}{" "}

@@ -35,7 +35,22 @@ const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
           
       </div>
       <p className="absolute inline-block bg-[#00FF66] rounded px-2 top-3 left-3 text-white ">{product?.arrival}</p>
-    <button className="absolute  hidden group-hover:block  bottom-0 w-full bg-black font-medium py-1 text-white"> Add To Card</button>
+   <button
+  onClick={(e) => {
+    e.preventDefault(); // prevent Link navigation
+    e.stopPropagation(); // stop bubbling
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const exists = cart.find(item => item.id === product.id);
+    if (!exists) {
+      cart.push({ ...product, quantity: 1 });
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }}
+  className="absolute hidden group-hover:block bottom-0 w-full bg-black font-medium cursor-pointer py-1 text-white"
+>
+  Add To Cart
+</button>
+
       </div>
 
    <div className="py-4">
@@ -60,23 +75,33 @@ const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
         <span className="text-gray-500 text-sm font-semibold">({product?.rating?.stars})</span>
       </div>
   <div className="flex items-center gap-2 mt-2">
-  {product?.colours?.map((color, index) => (
-    <label key={index} htmlFor={`color-${index}`} className="cursor-pointer">
-      <input
-        type="radio"
-        name="color"
-        value={color?.hex}
-        id={`color-${index}`}
-        className="hidden" 
-      />
-      <div
-        className={`w-5 h-5 rounded-full transition border-2 ${
-color?.selected ? 'border-black' : 'border-transparent'
-        }`}
-        style={{ backgroundColor: color.hex }}
-      />
-    </label>
-  ))}
+ {product?.colours?.map((color, index) => (
+  <label
+    key={index}
+    htmlFor={`color-${index}`}
+    className="cursor-pointer"
+    onClick={(e) => {
+      e.stopPropagation(); // Prevent bubbling to Link
+      e.preventDefault();  // Prevent navigation
+      setSelectedColor(color.hex); // Optional: track selection
+    }}
+  >
+    <input
+      type="radio"
+      name="color"
+      value={color?.hex}
+      id={`color-${index}`}
+      className="hidden"
+    />
+    <div
+      className={`w-5 h-5 rounded-full transition border-2 ${
+        selectedColor === color.hex ? 'border-black' : 'border-transparent'
+      }`}
+      style={{ backgroundColor: color.hex }}
+    />
+  </label>
+))}
+
 </div>
 
 
