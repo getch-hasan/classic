@@ -46,7 +46,7 @@ const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }}
-  className="absolute hidden group-hover:block bottom-0 w-full bg-black font-medium cursor-pointer py-1 text-white"
+  className="absolute md:hidden group-hover:block bottom-0 w-full bg-black font-medium cursor-pointer py-1 text-white"
 >
   Add To Cart
 </button>
