@@ -1,3 +1,4 @@
+import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -9,7 +10,7 @@ const ProductCard = ({product ,handleModal }) => {
 const fullStars = Math.floor(rating);
 const hasHalfStar = rating % 1 >= 0.5;
 const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    
+      const { addToCart } = useCart();
   return (
     <Link href={`details/${product?.id}`} className="md:w-64 w-36  rounded">
       {/* Product Image */}
@@ -35,21 +36,16 @@ const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
           
       </div>
       <p className="absolute inline-block bg-[#00FF66] rounded px-2 top-3 left-3 text-white ">{product?.arrival}</p>
-   <button
-  onClick={(e) => {
-    e.preventDefault(); // prevent Link navigation
-    e.stopPropagation(); // stop bubbling
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const exists = cart.find(item => item.id === product.id);
-    if (!exists) {
-      cart.push({ ...product, quantity: 1 });
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  }}
-  className="absolute md:hidden group-hover:block bottom-0 w-full bg-black font-medium cursor-pointer py-1 text-white"
->
-  Add To Cart
-</button>
+  <button
+    onClick={(e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      addToCart(product);
+    }}
+    className="absolute md:hidden group-hover:block bottom-0 w-full bg-black font-medium cursor-pointer py-1 text-white"
+  >
+    Add To Cart
+  </button>
 
       </div>
 

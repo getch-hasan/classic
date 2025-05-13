@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/nav";
 import { ProductProvider } from "@/context/ProductContext";
 import Footer from "@/components/layout/footer";
+import { CartProvider } from '@/context/CartContext';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -21,8 +22,12 @@ export default function RootLayout({ children }) {
       <body
         
       >
-         <Navbar/>
-       <ProductProvider>{children}</ProductProvider>
+         <ProductProvider>
+          <CartProvider>
+            <Navbar />
+            {children}
+          </CartProvider>
+        </ProductProvider>
        <Footer/>
       </body>
     </html>

@@ -1,51 +1,11 @@
-import { useEffect, useState } from "react";
-import { BiSolidDownArrow, BiSolidUpArrow } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
+import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
 import { FiShoppingBag } from "react-icons/fi";
 import { TbCoinTaka } from "react-icons/tb";
+import { useCart } from "@/context/CartContext"; // Import useCart
 
 const CartDrawer = ({ isOpen, onClose }) => {
-  const [cartItems, setCartItems] = useState([]);
-
-  // Load cart from localStorage
-  useEffect(() => {
-    if (isOpen) {
-      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-      setCartItems(storedCart);
-    }
-  }, [isOpen]);
-
-  // Update localStorage
-  const updateCartStorage = (items) => {
-    localStorage.setItem("cart", JSON.stringify(items));
-    setCartItems(items);
-  };
-
-  // Increase quantity
-  const handleIncrease = (id) => {
-    const updatedItems = cartItems.map((item) =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    );
-    updateCartStorage(updatedItems);
-  };
-
-  // Decrease quantity
-  const handleDecrease = (id) => {
-    const updatedItems = cartItems
-      .map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-      .filter((item) => item.quantity > 0);
-    updateCartStorage(updatedItems);
-  };
-
-  // Remove item
-  const handleRemove = (id) => {
-    const updatedItems = cartItems.filter((item) => item.id !== id);
-    updateCartStorage(updatedItems);
-  };
+  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity } = useCart(); // Use CartContext
 
   // Total Price
   const totalPrice = cartItems.reduce(
@@ -74,7 +34,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
             </h2>
             <button
               onClick={onClose}
-              className="text-gray-500 border-2 border-gray-200 rounded-lg py-1 px-3 bg-gray-300 hover:bg-gray-100"
+              className="text-gray-500  cursor-pointer border-2 border-gray-200 rounded-lg py-1 px-3 bg-gray-300 hover:bg-gray-100"
             >
               Close
             </button>
@@ -92,17 +52,17 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 >
                   <div className="flex flex-col items-center mr-4">
                     <button
-                      className=" hover:text-black"
-                      onClick={() => handleIncrease(item.id)}
+                      className="hover:text-black cursor-pointer"
+                      onClick={() => increaseQuantity(item.id)}
                     >
                       <BiSolidUpArrow />
                     </button>
                     <span className="font-medium my-1">{item?.quantity}</span>
                     <button
-                      className="text-gray-500 hover:text-black"
-                      onClick={() => handleDecrease(item.id)}
+                      className="text-gray-500 cursor-pointer hover:text-black"
+                      onClick={() => decreaseQuantity(item.id)}
                     >
-                      <BiSolidDownArrow/> 
+                      <BiSolidDownArrow />
                     </button>
                   </div>
 
@@ -117,15 +77,18 @@ const CartDrawer = ({ isOpen, onClose }) => {
                       {item?.name}{" "}
                       <span className="text-gray-400">| MF-649</span>
                     </h3>
-                    <p className="font-bold text-lg mt-1">TK. {item?.price} <span className=" text-sm font-medium line-through">tk 200</span></p>
-                    <p className="text-sm ">
-                      Size: {item?.sizes[0]}
+                    <p className="font-bold text-lg mt-1">
+                      TK. {item?.price}{" "}
+                      <span className=" text-sm font-medium line-through">
+                        tk 200
+                      </span>
                     </p>
+                    <p className="text-sm ">Size: {item?.sizes[0]}</p>
                   </div>
 
                   <button
-                    onClick={() => handleRemove(item.id)}
-                    className="text-red-500 hover:text-red-700 ml-4"
+                    onClick={() => removeFromCart(item.id)} // Remove using context
+                    className="text-red-500 cursor-pointer hover:text-red-700 ml-4"
                   >
                     <MdClose size={18} />
                   </button>
@@ -137,7 +100,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
           {/* Footer */}
           <div className="p-4 flex w-full justify-center text-white">
             <div className="flex bg-gradient-to-r rounded-sm from-green-600 to-green-300 items-center justify-center gap-4">
-              <button className="font-semibold px-4 rtransition">
+              <button className="font-semibold cursor-pointer px-4 rtransition">
                 Place Order
               </button>
               <span className="flex items-center px-4 border-l gap-1 text-lg font-semibold">

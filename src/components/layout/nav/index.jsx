@@ -6,12 +6,14 @@ import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import CategoryMenu from "@/components/hero/category";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const [isCartOpen, setCartOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
+const { cartItems } = useCart();
+const cartCount = cartItems.length;
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Contact", path: "/contact" },
@@ -35,11 +37,10 @@ export default function Navbar() {
               <li key={item.path}>
                 <Link
                   href={item.path}
-                  className={`cursor-pointer pb-1 ${
-                    pathname === item.path
+                  className={`cursor-pointer pb-1 ${pathname === item.path
                       ? "border-b-2 border-gray-300"
                       : "border-b-2 border-transparent hover:border-gray-300"
-                  }`}
+                    }`}
                 >
                   {item?.label}
                 </Link>
@@ -63,9 +64,15 @@ export default function Navbar() {
             <Image src="/nav/Vector.svg" height={20} width={17} alt="Wishlist" />
 
             {/* Cart Icon */}
-            <button onClick={() => setCartOpen(true)}>
-              <Image src="/nav/Cart1.svg" height={20} width={20} alt="Cart" />
-            </button>
+          <button onClick={() => setCartOpen(true)} className="relative">
+  <Image src="/nav/Cart1.svg" height={20} width={20} alt="Cart" />
+  {cartCount > 0 && (
+    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+      {cartCount}
+    </span>
+  )}
+</button>
+
 
             {/* Mobile Menu Toggle */}
             <button
@@ -79,47 +86,46 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Nav Menu */}
-{isMobileMenuOpen && (
-  <div className="fixed inset-0 z-40 bg-black/50 md:hidden">
-    <div className="absolute top-0 left-0 right-0 bottom-0 bg-white p-6 overflow-y-auto shadow-md">
-      {/* Close Button */}
-      <div className="flex justify-end mb-4">
-        <button
-          onClick={() => setMobileMenuOpen(false)}
-          className="text-xl text-gray-600 hover:text-black"
-          aria-label="Close Menu"
-        >
-          <FaTimes />
-        </button>
-      </div>
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 z-40 bg-black/50 md:hidden">
+            <div className="absolute top-0 left-0 right-0 bottom-0 bg-white p-6 overflow-y-auto shadow-md">
+              {/* Close Button */}
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-xl text-gray-600 hover:text-black"
+                  aria-label="Close Menu"
+                >
+                  <FaTimes />
+                </button>
+              </div>
 
-      {/* Mobile Nav Links */}
-      <ul className="flex flex-col gap-4 text-base mb-6">
-        {navItems.map((item) => (
-          <li key={item.path}>
-            <Link
-              href={item.path}
-              className={`block py-1 ${
-                pathname === item.path
-                  ? "text-black font-semibold"
-                  : "text-gray-600 hover:text-black"
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+              {/* Mobile Nav Links */}
+              <ul className="flex flex-col gap-4 text-base mb-6">
+                {navItems.map((item) => (
+                  <li key={item.path}>
+                    <Link
+                      href={item.path}
+                      className={`block py-1 ${pathname === item.path
+                          ? "text-black font-semibold"
+                          : "text-gray-600 hover:text-black"
+                        }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
 
-      {/* Category Menu */}
-      <div>
-        <h3 className="text-lg font-semibold mb-2">Categories</h3>
-        <CategoryMenu />
-      </div>
-    </div>
-  </div>
-)}
+              {/* Category Menu */}
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Categories</h3>
+                <CategoryMenu />
+              </div>
+            </div>
+          </div>
+        )}
 
 
       </nav>
